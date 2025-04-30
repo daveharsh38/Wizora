@@ -80,13 +80,14 @@ WSGI_APPLICATION = 'Wizora.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'wizora_db'),
-        'USER': os.environ.get('DB_USER', 'wizora_user'),
-        'PASSWORD': os.environ.get('DB_PASS', 'your_db_password'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
 
 
 # Password validation
