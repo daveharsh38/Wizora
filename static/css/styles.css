@@ -1,0 +1,475 @@
+/* General styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h5, p {
+  font-weight: 500;
+}
+
+/* Carousel styling */
+.carousel-inner .carousel-item {
+  padding-top: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.carousel-item h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.carousel-item p {
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+/* Feature steps styling */
+section.container h2 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.row.text-center .col-md-2 {
+  background-color: white;
+  padding: 1.5rem;
+  margin: 0.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  min-height: 220px;
+}
+
+.row.text-center .col-md-2:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f0f8ff;
+}
+
+.row.text-center .col-md-2 h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.row.text-center .col-md-2 p {
+  font-size: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Floating emojis */
+.floating-emojis {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-emojis span {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatEmoji 10s infinite linear;
+  opacity: 0.5;
+}
+
+@keyframes floatEmoji {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.floating-emojis span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-emojis span:nth-child(2) { left: 30%; animation-delay: 3s; }
+.floating-emojis span:nth-child(3) { left: 50%; animation-delay: 6s; }
+.floating-emojis span:nth-child(4) { left: 70%; animation-delay: 1s; }
+.floating-emojis span:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .row.text-center .col-md-2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-item h1 {
+    font-size: 2rem;
+  }
+
+  .carousel-item p {
+    font-size: 1rem;
+  }
+}
+
+/* Call to action */
+section.text-center h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.btn.btn-success {
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.btn.btn-success:hover {
+  transform: scale(1.05);
+  background-color: #28a745;
+}
+
+.custom-dropdown {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+.custom-dropdown .dropdown-item {
+  font-weight: 500;
+  color: #333;
+  padding: 0.6rem 1.2rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+/* Footer */
+.footer {
+  background-color: #222;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.footer a.footer-link {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer a.footer-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer h5, .footer h6 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footer i {
+  transition: transform 0.2s ease;
+}
+
+.footer i:hover {
+  transform: scale(1.2);
+  color: #0d6efd;
+}
+
+/* Fade effect */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Login card styles */
+.login-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 3rem;  /* Increased padding for a bigger card */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 600px;  /* Increased width for a bigger card */
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for hover */
+}
+
+.login-card:hover {
+  transform: translateY(-10px);  /* Hover effect to lift the card */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Stronger shadow on hover */
+}
+
+.login-heading {
+  text-align: center;
+  font-size: 2rem;  /* Increased font size for the heading */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2rem;  /* Increased margin for more space */
+}
+
+.form-control {
+  border-radius: 10px;
+  padding: 15px;  /* Increased padding for bigger input fields */
+  font-size: 1.2rem;  /* Slightly bigger font size */
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.2);
+  outline: none;
+}
+
+/* Login button */
+.btn-login {
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;  /* Bigger font size for the button */
+  margin-top: 1.5rem;  /* Increased margin for spacing */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.btn-login:hover {
+  background-color: #0b5ed7;
+  box-shadow: 0 6px 16px rgba(13, 110, 253, 0.4);
+  transform: translateY(-2px); /* Hover effect for button */
+}
+
+/* Signup button */
+.btn-signup {
+  background-color: #20c997;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;  /* Increased margin for spacing */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(32, 201, 151, 0.3);
+}
+
+.btn-signup:hover {
+  background-color: #17a589;
+  box-shadow: 0 6px 16px rgba(32, 201, 151, 0.4);
+  transform: translateY(-2px); /* Hover effect for button */
+}
+
+/* Responsive tweak for the login card */
+@media (max-width: 576px) {
+  .login-card {
+    padding: 2rem;  /* Decrease padding on smaller screens */
+    max-width: 100%;
+  }
+
+  .login-heading {
+    font-size: 1.6rem;  /* Adjust font size for small screens */
+  }
+
+  .form-control {
+    font-size: 1rem;  /* Adjust input field font size */
+  }
+
+  .btn-login, .btn-signup {
+    font-size: 1rem;  /* Adjust button font size */
+    padding: 12px;  /* Adjust padding */
+  }
+}
+
+/* Responsive tweak for button group */
+@media (max-width: 576px) {
+  .d-flex.gap-3 {
+    flex-direction: column;
+  }
+}
+
+/* Error Message */
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* 🎉 Wish Card Styles */
+.wish-card {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
+
+.wish-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #ffe9f5, #e0f7fa);
+}
+
+.wish-card::before {
+  content: "✨";
+  font-size: 26px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wish-card:hover::before {
+  opacity: 1;
+  animation: sparkle 1.2s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(15deg) scale(1.2); }
+}
+
+/* Center the content of the row when there's only one item */
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: auto;
+  }
+}
+
+/* Wish Card Styles */
+.wish-card {
+  background: linear-gradient(135deg, #f7f9fb, #e0f7fa); /* Gradient background for contrast */
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin-bottom: 20px; /* Space between cards */
+  text-align: center; /* Center content inside the card */
+}
+
+/* Hover effect */
+.wish-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+}
+
+/* Wish Card Styles */
+.wish-card {
+  background: linear-gradient(135deg, #f7f9fb, #e0f7fa); /* Gradient background for contrast */
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin-bottom: 20px; /* Space between cards */
+  text-align: center; /* Center content inside the card */
+}
+
+/* Hover effect */
+.wish-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+}
+
+/* Header styling inside the wish card */
+.wish-card h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Date styling */
+.wish-card .created-on {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Message styling */
+.wish-card .message {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Edit and Delete Button Styles */
+.wish-card form {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px; /* Space between the message and buttons */
+}
+
+.wish-card form button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Edit Button */
+.wish-card form button.btn-edit {
+  background-color: #0d6efd; /* Blue color for Edit */
+  color: white;
+}
+
+.wish-card form button.btn-edit:hover {
+  background-color: #0b5ed7; /* Darker blue on hover */
+}
+
+/* Delete Button */
+.wish-card form button.btn-delete {
+  background-color: #dc3545; /* Red color for Delete */
+  color: white;
+}
+
+.wish-card form button.btn-delete:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+

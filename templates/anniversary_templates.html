@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block anniversary_templates %}
+<style>
+  .template-section {
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .email-card {
+    background: #fff0f6;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .email-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .tag {
+    background-color: #ec4899;
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .subject {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #9d174d;
+  }
+
+  .content {
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  .sender {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #555;
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .subject {
+      font-size: 1rem;
+    }
+
+    .content {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<h1 style="text-align:center; color:#be185d;">💖 Anniversary Email Templates Preview</h1>
+<div class="template-section">
+  <div class="email-card">
+    <div class="tag">Anniversary</div>
+    <div class="subject">Happy Anniversary Meera & Raj 💑</div>
+    <div class="content">
+      May your journey together be filled with endless love, laughter, and joy.<br><br>
+      Here's to many more years of togetherness!
+    </div>
+    <div class="sender">— From: Harsh Dave</div>
+  </div>
+
+  <div class="email-card">
+    <div class="tag">Anniversary</div>
+    <div class="subject">Wishing Ayesha & Sameer a Special Day 🥂</div>
+    <div class="content">
+      Congratulations on another year of love and happiness.<br><br>
+      Keep building your beautiful life together. ❤️
+    </div>
+    <div class="sender">— From: Komal Sharma</div>
+  </div>
+
+  <div class="email-card">
+    <div class="tag">Anniversary</div>
+    <div class="subject">Cheers to 5 Years, Neha & Ankit 🎉</div>
+    <div class="content">
+      You two are the definition of couple goals.<br><br>
+      May your bond only grow stronger each day!
+    </div>
+    <div class="sender">— From: Vikram Desai</div>
+  </div>
+</div>
+{% endblock %}

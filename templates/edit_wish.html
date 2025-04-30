@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block birthday %}
+<div class="container my-5">
+  <h2 class="text-center mb-4">✏️ Edit Your Wish</h2>
+  <form class="p-4 shadow rounded bg-white" method="post">
+    {% csrf_token %}
+
+    <!-- Row for Your Name and Recipient Name -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="sender_name" class="form-label">🙋 Your Name</label>
+        <input type="text" class="form-control" id="sender_name" name="sender_name"
+          value="{{ wish.sender_name }}" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="recipient_name" class="form-label">🎁 Recipient's Name</label>
+        <input type="text" class="form-control" id="recipient_name" name="recipient_name"
+          value="{{ wish.recipient_name }}" required>
+      </div>
+    </div>
+
+    <!-- Row for Your Email and Recipient Email -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="sender_email" class="form-label">📧 Your Email</label>
+        <input type="email" class="form-control" id="sender_email" name="sender_email"
+          value="{{ wish.sender_email }}" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="recipient_email" class="form-label">📨 Recipient's Email</label>
+        <input type="email" class="form-control" id="recipient_email" name="recipient_email"
+          value="{{ wish.recipient_email }}" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">📍 Where Do They Live?</label>
+      <input type="text" class="form-control" id="location" name="location" value="{{ wish.location }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">📅 Date</label>
+      <input type="date" class="form-control" id="date" name="date" value="{{ wish.date|date:'Y-m-d' }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">🎉 Occasion</label>
+      <input type="text" class="form-control" name="occasion" value="{{ wish.occasion }}" readonly>
+    </div>
+
+    <div class="mb-3">
+      <label for="custom_message" class="form-label">💌 Custom Message (optional)</label>
+      <textarea class="form-control" id="custom_message" name="message" rows="4">{{ wish.custom_message }}</textarea>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-success px-4 py-2">✅ Update Wish</button>
+      
+    <!-- Delete Form -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="delete" value="true">
+        <button type="submit" class="btn btn-danger px-4 py-2">🗑️ Delete</button>
+    </form>
+  
+    </div>
+  </form>
+</div>
+{% endblock %}

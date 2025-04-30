@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block anniversary %}
+<div class="container my-5">
+  <h2 class="text-center mb-4">💍 Add an Anniversary Reminder</h2>
+  <form class="p-4 shadow rounded bg-white" method="post" action="{% url 'save_event_reminder' %}">
+    {% csrf_token %}
+
+    <!-- Row for Your Name and Recipient Name -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="sender_name" class="form-label">🙋 Your Name</label>
+        <input type="text" class="form-control" id="sender_name" name="sender_name" placeholder="Enter your name" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="recipient_name" class="form-label">💑 Couple's Name</label>
+        <input type="text" class="form-control" id="recipient_name" name="recipient_name" placeholder="E.g. John & Jane" required>
+      </div>
+    </div>
+
+    <!-- Row for Your Email and Recipient Email -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="sender_email" class="form-label">📧 Your Email</label>
+        <input type="email" class="form-control" id="sender_email" name="sender_email" placeholder="your@email.com" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="recipient_email" class="form-label">💌 Recipient Email</label>
+        <input type="email" class="form-control" id="recipient_email" name="recipient_email" placeholder="couple@email.com" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">📍 Where Do They Live?</label>
+      <input type="text" class="form-control" id="location" name="location" placeholder="City / Country" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">📅 Anniversary Date</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">🎊 Occasion</label>
+      <input type="text" class="form-control" value="Anniversary" readonly name="occasion">
+    </div>
+
+    <!-- ✅ Custom Message Field -->
+    <div class="mb-3">
+      <label for="custom_message" class="form-label">💌 Custom Message (optional)</label>
+      <textarea class="form-control" id="custom_message" name="custom_message" rows="4" placeholder="Write your anniversary wish here..."></textarea>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success px-4 py-2">✅ Save Reminder</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

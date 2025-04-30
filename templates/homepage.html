@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block home-page %}
+
+<!-- Carousel -->
+<div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <h1>Welcome to Wizora 🎊</h1>
+      <p>Celebrate special moments automatically with style! 💌</p>
+    </div>
+    <div class="carousel-item">
+      <h1>Never Miss a Birthday 🎂</h1>
+      <p>We'll remind them you're thinking of them — right on time! ⏰</p>
+    </div>
+    <div class="carousel-item">
+      <h1>Anniversaries Made Special 💞</h1>
+      <p>Let your loved ones feel cherished even from afar. 🌍</p>
+    </div>
+  </div>
+
+  <!-- Carousel Controls (Previous and Next buttons) -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<section class="container my-5">
+  <h2 class="text-center">How It Works 🚀</h2>
+  <div class="row text-center justify-content-center">
+    <div class="col-md-2 animate delay-1">
+      <h5>1️⃣ Login</h5>
+      <p>Sign in securely and manage your celebrations. 🔐</p>
+    </div>
+    <div class="col-md-2 animate delay-2">
+      <h5>2️⃣ Select Occasion</h5>
+      <p>Choose between birthday 🎂 or anniversary 💕.</p>
+    </div>
+    <div class="col-md-2 animate delay-3">
+      <h5>3️⃣ Enter Details</h5>
+      <p>Fill in name, email & date — we handle the rest. 📬</p>
+    </div>
+    <div class="col-md-2 animate delay-4">
+      <h5>4️⃣ Customize (Optional)</h5>
+      <p>Add your personal message ❤️ or let us pick one for you 🎨.</p>
+    </div>
+    <div class="col-md-2 animate delay-5">
+      <h5>5️⃣ Sit Back & Relax</h5>
+      <p>Your message will be sent automatically. 🕊️</p>
+    </div>
+  </div>
+</section>
+
+<section class="text-center my-5">
+  <h3>Make your wishes memorable with <strong>Wizora</strong> 🌟</h3>
+  <a href="{% url 'birthday' %}" class="btn btn-success">Get Started</a>
+</section>
+
+{% endblock %}

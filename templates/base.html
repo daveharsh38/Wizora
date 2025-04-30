@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WIZORA</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+
+
+    <!-- Static js and css file linking -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Optional JS (for components like modal, dropdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FontAwesome for social icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    {% if messages %}
+    {% for msg in messages %}
+      <div class="alert alert-warning alert-dismissible fade show m-3" role="alert">
+        <strong>Hey!</strong> {{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <!-- Let's Go button -->
+        <a href="login" class="btn btn-outline-warning ms-3 fw-bold">
+          🚀 Let's Go
+        </a>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <div class="floating-emojis">
+      <span>🎉</span>
+      <span>✨</span>
+      <span>🎈</span>
+      <span>🎁</span>
+      <span>😊</span>
+      <span>🥳</span>
+      <span>🥰</span>
+      <span>🤌</span>
+      <span>🥂</span>
+      <span>🎊</span>
+      <span>💍</span>
+      <span>🎀</span>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand me-4" href="/homepage">Wizora</a>
+
+        <!-- Mobile toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar items -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <!-- Page links -->
+          <ul class="navbar-nav">
+            <li class="nav-item px-2">
+              <a {% if request.path == "/birthday" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="/birthday">Birthday Wish</a>
+            </li>
+            <li class="nav-item px-2">
+              <a {% if request.path == "/anniversary" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="/anniversary">Anniversary Wish</a>
+            </li>
+            <li class="nav-item dropdown px-2">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                Our Templates
+              </a>
+              <ul class="dropdown-menu custom-dropdown">
+                <li><a class="dropdown-item" href="/birthday_templates">🎉 Birthday Templates</a></li>
+                <li><a class="dropdown-item" href="/anniversary_templates">💍 Anniversary Templates</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Right profile dropdown -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                Profile
+              </a>
+              <ul class="dropdown-menu custom-dropdown dropdown-menu-end">
+                {% if request.user.is_authenticated %}
+                <li><a class="dropdown-item" href="{% url 'personal_details' %}">👤 Personal Details</a></li>
+                <li><a class="dropdown-item" href="{% url 'wishboard' %}">📜 My Wishes</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">🚪 Log-Out</a></li>
+              {% else %}
+                <li><a class="dropdown-item" href="{% url 'login' %}">👤 Log-In</a></li>
+              {% endif %}
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content (pushes footer down) -->
+    <main class="flex-grow-1">
+      {% block home-page %}{% endblock %}
+      {% block birthday %}{% endblock %}
+      {% block anniversary %}{% endblock %}
+      {% block authentication %}{% endblock %}
+      {% block birthday_templates %}{% endblock %}
+      {% block anniversary_templates %}{% endblock %}
+      {% block personal_details %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white mt-5 pt-4 pb-3">
+      <div class="container">
+        <div class="row">
+          <!-- About -->
+          <div class="col-md-4">
+            <h5 class="fw-bold">Wizora</h5>
+            <p>
+              Wizora is your smart celebration assistant — automatically sending personalized birthday & anniversary wishes using elegant templates. Set once, celebrate forever!
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div class="col-md-2">
+            <h6 class="fw-bold">Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="{% url 'homepage' %}" class="footer-link">Home</a></li>
+              <li><a href="{% url 'birthday' %}" class="footer-link">Birthday</a></li>
+              <li><a href="{% url 'anniversary' %}" class="footer-link">Anniversary</a></li>
+              <li><a href="#" class="footer-link">Templates</a></li>
+            </ul>
+          </div>
+          <!-- Contact -->
+          <div class="col-md-3">
+            <h6 class="fw-bold">Contact Us</h6>
+            <ul class="list-unstyled">
+              <li>Email: <a href="mailto:info@wizora.com" class="footer-link">info@wizora.com</a></li>
+              <li>Phone: <a href="tel:+919737437717" class="footer-link">+91 97374 37717</a></li>
+              <li>Ahmedabad, India</li>
+            </ul>
+          </div>
+          <!-- Socials -->
+          <div class="col-md-3">
+            <h6 class="fw-bold">Follow Us</h6>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white fs-5" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-white fs-5" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-white fs-5" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="text-white fs-5" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom text -->
+        <div class="row mt-4">
+          <div class="col text-center">
+            <hr class="bg-light" />
+            <p class="mb-0">&copy; 2025 Wizora. Built with ❤️ by Dave Harsh Mukeshkumar.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

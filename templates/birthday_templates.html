@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block birthday_templates %}
+<style>
+  .template-section {
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .email-card {
+    background: #f0f9ff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .email-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .tag {
+    background-color: #3b82f6;
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .subject {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1e3a8a;
+  }
+
+  .content {
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  .sender {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #555;
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .subject {
+      font-size: 1rem;
+    }
+
+    .content {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<h1 style="text-align:center; color:#2563eb;">🎂 Birthday Email Templates Preview</h1>
+<div class="template-section">
+  <div class="email-card">
+    <div class="tag">Birthday</div>
+    <div class="subject">Happy Birthday Priya! 🎉</div>
+    <div class="content">
+      Wishing you a fantastic birthday filled with laughter and joy!<br><br>
+      May your day be as amazing as your smile. Keep shining! 🌟
+    </div>
+    <div class="sender">— From: Harsh Dave</div>
+  </div>
+
+  <div class="email-card">
+    <div class="tag">Birthday</div>
+    <div class="subject">Many Happy Returns, Ravi! 🎂</div>
+    <div class="content">
+      Hope you have a wonderful day and an even better year ahead. Stay blessed!<br><br>
+      Sending love and good vibes your way. 💫
+    </div>
+    <div class="sender">— From: Anjali Patel</div>
+  </div>
+
+  <div class="email-card">
+    <div class="tag">Birthday</div>
+    <div class="subject">Cheers to you, Kunal! 🎈</div>
+    <div class="content">
+      Here's to cake, memories, and all the fun life has to offer. Enjoy your day to the fullest! 🎁<br><br>
+      You're awesome, and don't you forget it.
+    </div>
+    <div class="sender">— From: Sneha Mehta</div>
+  </div>
+</div>
+{% endblock %}

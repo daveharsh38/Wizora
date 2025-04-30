@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block home-page %}
+
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold">🎉 Wishes List 🎉</h1>
+    <p class="fs-5">Here are the birthday and anniversary wishes you have set up! 💌</p>
+    <span class="badge bg-success fs-6">Total Wishes: {{ wishes|length }}</span>
+  </div>
+
+  {% if wishes %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for wish in wishes %}
+      <div class="wish-card">
+          <h4>🎉{{ wish.occasion }} Wish for {{ wish.recipient_name }}</h4>
+          <p class="created-on">Created on: {{ wish.date|date:"F j, Y" }}</p>
+          <p class="message">{{ wish.message }}</p>
+
+          <!-- Edit Button -->
+          <form method="get" action="{% url 'edit_wish' wish.id %}" style="display:inline;">
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </form>
+
+          <!-- Delete Button -->
+          <form method="post" action="{% url 'delete_wish' wish.id %}" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+      </div>
+      {% empty %}
+          <p>No wishes found yet.</p>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info text-center mt-5">No wishes found. Please add your birthday or anniversary wishes! 🎈</div>
+  {% endif %}
+</div>
+
+{% endblock %}
