@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w$9b9e=nmlmllwypcoy6(4jd_iyzf+8l(=rlwcjk+8x30+7zm#'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-insecure-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'Wizora.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'wizora_db'),
+        'USER': os.environ.get('DB_USER', 'wizora_user'),
+        'PASSWORD': os.environ.get('DB_PASS', 'your_db_password'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
