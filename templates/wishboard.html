@@ -12,7 +12,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       {% for wish in wishes %}
       <div class="wish-card">
-          <h4>🎉{{ wish.occasion }} Wish for {{ wish.recipient_name }}</h4>
+          <h4>🎉{{ wish.occasion.capitalize }} Wish for {{ wish.recipient_name }}</h4>
           <p class="created-on">Created on: {{ wish.date|date:"F j, Y" }}</p>
           <p class="message">{{ wish.message }}</p>
 
